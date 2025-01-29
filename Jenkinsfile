@@ -9,8 +9,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the code from the repository
-                git 'https://github.com/kamruddin-mansoori/test-app.git'
+                // Checkout the code from the repository and use the main branch
+                git branch: 'main', url: 'https://github.com/kamruddin-mansoori/test-app.git'
             }
         }
         stage('Build') {
