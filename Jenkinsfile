@@ -16,13 +16,13 @@ pipeline {
         stage('Build') {
             steps {
                 // Build the project using Maven
-                sh 'mvn clean install'
+                sh 'JAVA_HOME=${JDK21_PATH} mvn clean install'
             }
         }
         stage('Test') {
             steps {
                 // Run the tests using Maven
-                sh 'mvn test'
+                sh 'JAVA_HOME=${JDK21_PATH} mvn test'
             }
         }
     }
