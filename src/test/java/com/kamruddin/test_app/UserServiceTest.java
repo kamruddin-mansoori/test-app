@@ -1,5 +1,6 @@
 package com.kamruddin.test_app;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -31,6 +32,12 @@ class UserServiceTest {
     void sendMail(User user) {
         logger.error("User: {}", user);
         assertTrue(this.userService.sendMail(user));
+    }
+
+    @Test
+    void testUsersPresent() {
+        assertNotNull(this.userProvider.getUsers());
+        assertFalse(this.userProvider.getUsers().isEmpty());
     }
 
     public Stream<User> userProvider() {
